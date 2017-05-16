@@ -32,30 +32,33 @@ $(document).ready(function () {
   // on click even to process user submitted info
   $('#submit-btn').on('click', function (event) {
     event.preventDefault();
-
-    // creates newUser obj
-    var newUser = {
-      name: $('#name').val().trim(),
-      photo: $('#photo').val().trim(),
-      scores: []
-    };
+    if ($('#name').val().trim() === '' || $('#photo').val().trim() === '') {
+      alert('sorry, you must enter a value');
+    } else {
+      // creates newUser obj
+      var newUser = {
+        name: $('#name').val().trim(),
+        photo: $('#photo').val().trim(),
+        scores: []
+      };
 
     // pushes scores to arr in newUser
-    for (var i = 1; i <= 10; i++) {
-      newUser.scores.push($('#question' + i).val());
-    }
+      for (var i = 1; i <= 10; i++) {
+        newUser.scores.push($('#question' + i).val());
+      }
 
     // posts newUser to friends api
-    $.post('/api/friends', newUser)
+      $.post('/api/friends', newUser)
         .done(function (data) {
           console.log(data);
         });
 
     // retrieves friends api in order to find a match
     // then calls the getMatch function
-    $.get('/api/friends', function (req, res) {
-      console.log(req);
-      getMatch(newUser, req);
-    });
+      $.get('/api/friends', function (req, res) {
+        console.log(req);
+        getMatch(newUser, req);
+      });
+    }
   });
 });
