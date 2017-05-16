@@ -1,9 +1,12 @@
 $(document).ready(function () {
+  // takes current user data and compares with stored users
   function getMatch(user, arr) {
     var bestScore = 41;
     var currScore = 0;
     var match;
 
+    // ensures user isn't matched to himself/herself
+    // then proceeds to match logic.
     for (var i = 0; i < arr.length; i++) {
       if (user.name !== arr[i].name) {
         currScore = 0;
@@ -17,6 +20,7 @@ $(document).ready(function () {
       }
     }
 
+    // clears and then posts user match to modal
     $('#match').empty();
     $('#match').append(
           '<h1>' + match.name + '</h1>' +
@@ -25,6 +29,7 @@ $(document).ready(function () {
     $('#match-modal').modal('show');
   }
 
+  // on click even to process user submitted info
   $('#submit-btn').on('click', function (event) {
     event.preventDefault();
 
@@ -38,15 +43,16 @@ $(document).ready(function () {
       newUser.scores.push($('#question' + i).val());
     }
 
+    // posts newUser to friends api
     $.post('/api/friends', newUser)
         .done(function (data) {
           console.log(data);
         });
 
+    // retrieves friends api in order to find a match
+    // then calls the getMatch function
     $.get('/api/friends', function (req, res) {
       getMatch(newUser, req);
     });
   });
-
-  writeQuestions();
 });
