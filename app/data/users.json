@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Sloth",
+    "photo": "https://media.giphy.com/media/3NtY188QaxDdC/giphy.gif",
+    "scores": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "name": "Bugs Bunny",
+    "photo": "https://s-media-cache-ak0.pinimg.com/736x/69/81/3c/69813c795d54ad2065b4a058592ce7ad.jpg",
+    "scores": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ]
+  },
+  {
+    "name": "Bigby",
+    "photo": "http://i6.lisimg.com/6044876/411full.jpg",
+    "scores": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ]
+  },
+  {
+    "name": "Spider-Man",
+    "photo": "http://cdn2-www.comingsoon.net/assets/uploads/2017/03/spideyheader.jpg",
+    "scores": [
+      "4",
+      "3",
+      "4",
+      "5",
+      "2",
+      "5",
+      "4",
+      "5",
+      "4",
+      "4"
+    ]
+  },
+  {
+    "name": "Spider-Man",
+    "photo": "http://cdn2-www.comingsoon.net/assets/uploads/2017/03/spideyheader.jpg",
+    "scores": [
+      "4",
+      "3",
+      "4",
+      "5",
+      "2",
+      "5",
+      "4",
+      "5",
+      "4",
+      "4"
+    ]
+  },
+  {
+    "name": "Hulk",
+    "photo": "https://typeset-beta.imgix.net/rehost%2F2016%2F9%2F13%2F310bde30-764a-45c7-a619-fcb99ca05b52.jpg",
+    "scores": [
+      "1",
+      "5",
+      "5",
+      "2",
+      "1",
+      "2",
+      "1",
+      "2",
+      "1",
+      "3"
+    ]
+  }
+]

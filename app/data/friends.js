@@ -33,12 +33,14 @@ $(document).ready(function () {
   $('#submit-btn').on('click', function (event) {
     event.preventDefault();
 
+    // creates newUser obj
     var newUser = {
       name: $('#name').val().trim(),
       photo: $('#photo').val().trim(),
       scores: []
     };
 
+    // pushes scores to arr in newUser
     for (var i = 1; i <= 10; i++) {
       newUser.scores.push($('#question' + i).val());
     }
@@ -52,6 +54,7 @@ $(document).ready(function () {
     // retrieves friends api in order to find a match
     // then calls the getMatch function
     $.get('/api/friends', function (req, res) {
+      console.log(req);
       getMatch(newUser, req);
     });
   });
