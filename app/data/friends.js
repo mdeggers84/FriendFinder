@@ -39,6 +39,7 @@ $(document).ready(function () {
     clearForm();
   }
 
+  // ensures user has input in all fields
   function validate() {
     var validated = true;
 
@@ -52,6 +53,7 @@ $(document).ready(function () {
     }
     return validated;
   }
+
   // on click even to process user submitted info
   $('#submit-btn').on('click', function (event) {
     event.preventDefault();
