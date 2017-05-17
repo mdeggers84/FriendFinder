@@ -1,4 +1,12 @@
 $(document).ready(function () {
+  // clears form after successfully finding a match
+  function clearForm() {
+    $('#name').val('');
+    $('#photo').val('');
+    for (var i = 1; i <= 10; i++) {
+      $('#question' + i).val('');
+    }
+  }
   // takes current user data and compares with stored users
   function getMatch(user, arr) {
     var bestScore = 41;
@@ -27,15 +35,29 @@ $(document).ready(function () {
           '<img src="' + match.photo + '" class="img-responsive" alt="' + match.name + '">'
         );
     $('#match-modal').modal('show');
+
+    clearForm();
   }
 
+  function validate() {
+    var validated = true;
+
+    if ($('#name').val().trim() === '' || $('#photo').val().trim() === '') {
+      validated = false;
+    }
+    for (var i = 1; i <= 10; i++) {
+      if ($('#question' + i).val() === null) {
+        validated = false;
+      }
+    }
+    return validated;
+  }
   // on click even to process user submitted info
   $('#submit-btn').on('click', function (event) {
     event.preventDefault();
-    if ($('#name').val().trim() === '' || $('#photo').val().trim() === '') {
-      alert('sorry, you must enter a value');
-    } else {
-      // creates newUser obj
+
+    if (validate()) {
+       // creates newUser obj
       var newUser = {
         name: $('#name').val().trim(),
         photo: $('#photo').val().trim(),
@@ -59,6 +81,8 @@ $(document).ready(function () {
         console.log(req);
         getMatch(newUser, req);
       });
+    } else {
+      alert('Please enter information into all fields!');
     }
   });
 });
