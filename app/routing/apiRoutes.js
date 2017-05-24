@@ -22,7 +22,7 @@ var apiRoutes = function (app, bodyParser) {
 
     userArr.push(newUser);
     fs.writeFile('app/data/users.json', JSON.stringify(userArr));
-    res.json(newUser);
+    res.json(userArr);
   });
 };
 

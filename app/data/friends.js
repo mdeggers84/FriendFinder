@@ -74,15 +74,15 @@ $(document).ready(function () {
     // posts newUser to friends api
       $.post('/api/friends', newUser)
         .done(function (data) {
-          console.log(data);
+          getMatch(newUser, data);
         });
 
     // retrieves friends api in order to find a match
     // then calls the getMatch function
-      $.get('/api/friends', function (req, res) {
-        console.log(req);
-        getMatch(newUser, req);
-      });
+      // $.get('/api/friends', function (req, res) {
+      //   console.log(req);
+      //   getMatch(newUser, req);
+      // });
     } else {
       alert('Please enter information into all fields!');
     }
